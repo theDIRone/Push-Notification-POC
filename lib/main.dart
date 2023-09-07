@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:testapp/notification_service.dart';
-import 'package:testapp/push_notification.dart';
 
 import 'firebase_options.dart';
 
@@ -52,37 +51,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late FirebaseMessaging _firebaseMessaging;
-
-  // Future<void> registerNotification() async {
-  //   // // 1. Initialize the Firebase app
-  //   // await Firebase.initializeApp();
-  //
-  //   // 2. Instantiate Firebase Messaging
-  //   _firebaseMessaging = FirebaseMessaging.instance;
-  //
-  //   // 3. On iOS, this helps to take the user permissions
-  //   NotificationSettings settings = await _firebaseMessaging.requestPermission(
-  //     alert: true,
-  //     badge: true,
-  //     provisional: false,
-  //     sound: true,
-  //   );
-  //
-  //   if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-  //     print('User granted permission');
-  //     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-  //       print('Got a message whilst in the foreground!');
-  //
-  //       if (message.notification != null) {
-  //         print('Message also contained a notification with title: ${message.notification?.title}');
-  //         print('Message also contained a notification with body: ${message.notification?.body}');
-  //       }
-  //     });
-  //   } else {
-  //     print('User declined or has not accepted permission');
-  //   }
-  // }
 
   @override
   void initState() {
@@ -106,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(onPressed: () async {
               FirebaseMessaging.instance.getToken().then((value) => print(value));
 
-            }, child: Text('Listen Notification'))
+            }, child: Text('Get Token'))
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

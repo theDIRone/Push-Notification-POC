@@ -24,24 +24,36 @@ class NotificationServices {
         onDidReceiveNotificationResponse: (payload) {});
   }
 
-  void firebaseInit(BuildContext context) {
-    FirebaseMessaging.onMessage.listen((message) {
-      print('Got a message whilst in the foreground!');
+  void firebaseInit(BuildContext context) async {
+    NotificationSettings settings = await messaging.requestPermission(
+      alert: true,
+      badge: true,
+      provisional: false,
+      sound: true,
+    );
 
-      if (message.notification != null) {
-        if (kDebugMode) {
-          print(
-              'Message also contained a notification with title: ${message.notification?.title}');
-          print(
-              'Message also contained a notification with body: ${message.notification?.body}');
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      print('User granted permission');
+      FirebaseMessaging.onMessage.listen((message) {
+        print('Got a message whilst in the foreground!');
+
+        if (message.notification != null) {
+          if (kDebugMode) {
+            print(
+                'Message also contained a notification with title: ${message.notification?.title}');
+            print(
+                'Message also contained a notification with body: ${message.notification?.body}');
+          }
+          if (Platform.isAndroid) {
+            initLocalNotifications(context, message);
+            showNotification(message);
+          }
+          // showNotification(message);
         }
-        if (Platform.isAndroid) {
-          initLocalNotifications(context, message);
-          showNotification(message);
-        }
-       // showNotification(message);
-      }
-    });
+      });
+    } else {
+      print('User declined or has not accepted permission');
+    }
   }
 
   Future<void> showNotification(RemoteMessage message) async {
@@ -76,4 +88,5 @@ class NotificationServices {
           notificationDetails);
     });
   }
+
 }
