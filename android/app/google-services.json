@@ -29,6 +29,49 @@
             {
               "client_id": "548013927414-c979r224rb5b9v6aj2hk3q54o09njbev.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "548013927414-dhhvtcdl7tadjsrp98530ralu9ia36g8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.testapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548013927414:android:58789447e5ef7381b5b5d7",
+        "android_client_info": {
+          "package_name": "com.theDIRone.push_notification_poc.push_notification_poc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548013927414-c979r224rb5b9v6aj2hk3q54o09njbev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWaUh9eYxiFeR1k7XVrY_W6Ps5zk6dv30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548013927414-c979r224rb5b9v6aj2hk3q54o09njbev.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "548013927414-dhhvtcdl7tadjsrp98530ralu9ia36g8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.testapp"
+              }
             }
           ]
         }
